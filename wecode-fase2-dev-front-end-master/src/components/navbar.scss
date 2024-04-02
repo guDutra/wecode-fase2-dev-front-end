@@ -1,0 +1,60 @@
+@media only screen and (max-width: 450px) {
+
+    .navbar {
+        position: relative;
+
+        nav {
+            width: 100%;
+            position: fixed;
+            display: flex;
+            top: 0;
+            left: 0;
+            height: 50px;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 0;
+            background-color: transparent;
+            z-index: 1000;
+            transition: background-color 0.5s ease;
+
+            .icons-left,
+            .icons-right {
+                display: flex;
+                gap: 10px;
+                padding: 0 0px;
+            }
+
+            .icons-right {
+                padding-right: 10px;
+            }
+
+            i {
+                padding: 5px;
+            }
+
+            .shopping-cart-icon {
+               display: flex;
+            }
+
+            .shopping-cart-icon span {
+               
+                display: flex;
+                justify-content: center;
+                align-items: initial;
+                color: white;
+                font-size: 8px;
+            }
+        }
+
+
+    }
+
+    .navbar-white {
+        background-color: white !important;
+
+        .shopping-cart-icon span {
+            color: black !important;
+        }
+
+    }
+}

@@ -1,0 +1,44 @@
+@media only screen and (max-width: 450px) {
+
+
+    .categoriesPage {
+
+        h2 {
+            width: 90%;
+            font-size: 16px;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            padding-left: 10px;
+            margin-top: 10px;
+        }
+
+        .categoriesPage-slider {
+            margin-top: 15px;
+            width: 100%;
+            height: 230px;
+            display: flex;
+            flex-wrap: nowrap;
+            flex-direction: row;
+            overflow-x: scroll;
+
+
+            .productDiv {
+                width: 135px;
+                margin: 10px;
+
+            }
+
+            img {
+
+
+                height: 175px;
+                width: 135px;
+            }
+
+            p {
+                text-align: left;
+                width: 100%;
+            }
+        }
+
+    }
+}
