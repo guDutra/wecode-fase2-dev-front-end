@@ -1,16 +1,24 @@
 import React, { useEffect, useState } from 'react'
 import Slider from "react-slick";
-import { getProducts } from '../utils';
+import { getProducts, getProductsDesktop } from '../utils';
 import './lancamentos.scss'
 const Lancamentos = ({ updateCount }) => {
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
     const [shoppingCart, setShoppingCart] = useState([]);
     const [products, setProducts] = useState(null);
     const [showAlertAdd, setShowAlertAdd] = useState(false);
     const [showAlertAlreadyAdd, setShowAlertAlreadyAdd] = useState(false);
     useEffect(() => {
-        getProducts().then(res => {
-            setProducts(res);
-        }).catch(error => console.log("Erro ao carregar produtos", error));
+
+        if(isMobile) {
+            getProducts().then(res => {
+                setProducts(res);
+            }).catch(error => console.log("Erro ao carregar produtos", error));
+        } else {
+            getProductsDesktop().then(res => {
+                setProducts(res);
+            }).catch(error => console.log("Erro ao carregar produtos", error));
+        }
     }, []);
 
     const settings = {
@@ -20,6 +28,22 @@ const Lancamentos = ({ updateCount }) => {
         slidesToShow: 1.5,
         swipeToSlide: true,
         arrows: false,
+        afterChange: function (index) {
+            console.log(
+                `Slider Changed to: ${index + 1}, background: #222; color: #bada55`
+            );
+        }
+    };
+
+    const settingsDesktop = {
+        className: "center",
+        infinite: false,
+        centerPadding: "30px",
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        swipeToSlide: false,
+        arrows: true,
+        dots: true,
         afterChange: function (index) {
             console.log(
                 `Slider Changed to: ${index + 1}, background: #222; color: #bada55`
@@ -69,7 +93,7 @@ const Lancamentos = ({ updateCount }) => {
             )}
             <h2 id='lancamento-title'>Lançamentos</h2>
             {products && products.length > 0 ? (
-                <Slider {...settings}>
+                <Slider {...(isMobile ? settings : settingsDesktop)}>
                     {products.map((product) => (
                         <div className='lancamento-page' key={product.id}>
                             <div className='img-lancamento'>

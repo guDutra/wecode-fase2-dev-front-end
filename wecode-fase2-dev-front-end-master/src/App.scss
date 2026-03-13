@@ -12,6 +12,23 @@
     width: 100%;
 }
 
+.divBannersGrandes {
+    flex-direction: row;
+    display: flex;
+    width: 100%;
+    flex-wrap: nowrap;
+    gap: 10px;
+    overflow-x: hidden;
+
+    #banner1 {
+        width: 36%;
+    }
+
+    #banner2 {
+        width: 64%;
+    }
+}
+
 .alert-add-cart {
     display: flex;
     align-items: center;

@@ -1,4 +1,3 @@
-@media only screen and (max-width: 450px) {
     .topPage {
         width: 100%;
 
@@ -17,6 +16,10 @@
             width: 35%;
             border: 1px solid #FFFFF0;
             background-color:transparent;
+
+            @media only screen and (min-width: 450px) {
+                width: 150px;
+                backdrop-filter: blur(10px);
+            }
         }
     }
-}
